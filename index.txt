@@ -1,0 +1,50 @@
+<head>
+    <!-- Character encoding -->
+    <meta charset="UTF-8" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Page title -->
+    <title>AbdessadekDev - Portfolio</title>
+    
+    <!-- SEO meta tags -->
+    <meta name="description" content="Portfolio of Abdessadek, showcasing web development projects and skills in programming and design." />
+    <meta name="keywords" content="Abdessadek, portfolio, web development, programming, projects" />
+    <meta name="author" content="Abdessadek Sbaai" />
+    
+    <!-- Social media / Open Graph meta tags -->
+    <meta property="og:title" content="AbdessadekDev - Portfolio" />
+    <meta property="og:description" content="Showcasing web development projects and skills." />
+    <meta property="og:image" content="/path-to-thumbnail.jpg" />
+    <meta property="og:url" content="https://yourportfolio.com" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AbdessadekDev - Portfolio" />
+    <meta name="twitter:description" content="Showcasing web development projects and skills." />
+    <meta name="twitter:image" content="/path-to-thumbnail.jpg" />
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    
+    <!-- Other meta -->
+    <meta name="theme-color" content="#000000" />
+</head>
+
+
+Additional Notes:
+1- SEO Meta Tags: These help search engines understand your page content better.
+2- Open Graph and Twitter Meta Tags: These enhance how your site appears when shared on social media platforms.
+3- Stylesheets: Link to your CSS file(s) for styling.
+4- Fonts: Include any custom fonts you use to ensure consistent typography.
+5- Theme Color: Sets the color of the browser's address bar for mobile devices, giving a polished look.
