@@ -1,19 +1,38 @@
 <!doctype html>
 <html lang="en">
-
 <head>
+  <!-- Character encoding -->
   <meta charset="UTF-8" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Responsive design -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AbdessadekDev.</title>
+
+  <!-- Page title -->
+  <title>AbdessadekDev - Portfolio</title>
+
+  <!-- SEO meta tags -->
+  <meta name="description"
+    content="Portfolio of Abdessadek, showcasing web development projects and skills in programming and design." />
+  <meta name="keywords" content="Abdessadek, portfolio, web development, programming, projects" />
+  <meta name="author" content="Abdessadek Sbaai" />
+
+  <!-- Social media / Open Graph meta tags -->
+  <meta property="og:title" content="AbdessadekDev - Portfolio" />
+  <meta property="og:description" content="Showcasing web development projects and skills." />
+  <meta property="og:image" content="/path-to-thumbnail.jpg" />
+  <meta property="og:url" content="https://yourportfolio.com" />
+  <meta property="og:type" content="website" />
   <script>
     const userPrefersDark = localStorage.getItem('theme') === 'dark' ||
       (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        if (userPrefersDark) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+    if (userPrefersDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   </script>
 
 </head>
