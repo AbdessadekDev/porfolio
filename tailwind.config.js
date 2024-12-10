@@ -7,6 +7,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        amiri: ['Amiri', 'serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+        tajawal: ['Tajawal', 'sans-serif'],
+      },
       colors: {
         // Light Mode Colors
         'primary-bg-light': '#ffffff',
@@ -45,6 +51,18 @@ export default {
         "spin-slow": 'spin 3s linear infinite',
         'ping-slow': 'ping 3s linear infinite',
         'bounce-slow': 'bounce 3s linear infinite'
+      },
+      backgroundImage: {
+        'logo': "url('./src/assets/img/logo-en.png')",
+        'logo-ar': "url('./src/assets/img/logo-ar.png')",
+        'ar': "url('./src/assets/img/morocco.png')",
+        'fr': "url('./src/assets/img/france.png')",
+        'en': "url('./src/assets/img/united-kingdom.png')",
+      },
+      backgroundSize: {
+        'logo-size-md': '204.8px 52.8px',
+        'logo-size-sm': '153.6px 39.6px',
+        'logo-lng-size': '16px'
       }
     },
   },
