@@ -67,15 +67,21 @@ const Header = () => {
         setToggleMenu((prev) => !prev);
     };
 
+    
     // Handle navigation clicks for mobile
     const handleNavigationMobile = (event: React.MouseEvent<HTMLAnchorElement>) => {
         setToggleMenu(false);
+        console.log(event);
+        
     };
 
     // Handle navigation clicks for desktop (placeholder for future functionality)
     const handleNavigationDesktop = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        console.log(event);
+        
         // Logic for navigation can be added here if needed
     };
+
 
     // Set the initial language from local storage
     useEffect(() => {
@@ -111,7 +117,7 @@ const Header = () => {
                     {translatedNavItems.map((item, index) => (
                         <li key={index} className="overflow-hidden w-[90px] text-center">
                             <Link
-                                onClick={handleNavigationDesktop}
+                                onClick={(e) => handleNavigationDesktop(e)}
                                 id={navItems[index].toLowerCase()}
                                 className="text-[.9em] text-nowrap py-1 hover:text-accent-light hover:font-bold transition-all duration-300"
                                 to={`#${navItems[index].toLowerCase()}`}
