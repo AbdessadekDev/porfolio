@@ -1,7 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom'
 import ThemeProvider from './layouts/ThemeProvider';
-import App from './App';
+import './translate/i18next';
+import { lazy, Suspense } from 'react';
+import Loading from './components/Loading';
 
+const App = lazy(() => import('./App'));
 
 const router = createBrowserRouter([
     {
@@ -10,7 +13,9 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <App />
+                element: <Suspense fallback={<Loading/>}>
+                    <App/>
+                </Suspense>
             }
         ]
     }
