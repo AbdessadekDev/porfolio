@@ -17,7 +17,7 @@ const AboutMe = () => {
 
     return (
         <div dir={lang === 'ar' ? 'rtl' : 'ltr'} className="flex relative md:mx-20 h-max md:my-20 my-10 justify-center flex-col items-center">
-            <h1 className={`text-3xl ${lang === 'ar' ? 'font-amiri' : 'font-poppins'} text-accent-light`}>{t('about:whoami', { lng: lang || 'en' })}</h1>
+            <h1 className={`text-3xl ${lang === 'ar' ? 'font-amiri' : 'font-poppins'} text-accent-light`}>{t('about:who_am_i', { lng: lang || 'en' })}</h1>
             <div className="w-full flex md:flex-row md:items-end md:gap-10 flex-col">
                 <motion.div
                     ref={refDescription}

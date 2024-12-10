@@ -7,9 +7,15 @@ import { BsFillCloudDownloadFill } from "react-icons/bs"; // Cloud download icon
 import cvEn from "../assets/pdf/abdessadek-sbaai-cv-en.pdf"; // English CV
 import cvFr from "../assets/pdf/abdessadek-sbaai-cv-fr.pdf"; // French CV
 import Dropdown from "../components/Dropdown"; // Custom dropdown component
-import React, { useEffect, useState } from "react"; // React hooks
+import React, { createContext, useEffect, useState } from "react"; // React hooks
 import { IoMdClose } from "react-icons/io"; // Menu icons
 import { IoMenu } from "react-icons/io5";
+
+interface DropdownCTXProps {
+    setDropped: React.Dispatch<React.SetStateAction<boolean>>;
+    dropped: boolean;
+}
+export const DropdownCTX = createContext<DropdownCTXProps | undefined>(undefined);
 
 // Header component definition
 const Header = () => {
@@ -17,6 +23,7 @@ const Header = () => {
     const [selectedValue, setSelectedValue] = useState<string | null>(null); // Selected language display label
     const [originalSelectedValue, setOriginalSelectedValue] = useState<string | null>(localStorage.getItem("lang")); // Selected language value
     const [toggleMenu, setToggleMenu] = useState(false); // Mobile menu toggle state
+    const [dropped, setDropped] = useState(false);
     const { t } = useTranslation(); // Translation function from i18n
 
     // Navigation items and their translations
@@ -83,11 +90,12 @@ const Header = () => {
         }
     }, [selectedValue]);
 
+
     // JSX for rendering the header
     return (
         <header
             dir={originalSelectedValue === "ar" ? "rtl" : "ltr"}
-            className={`z-10 ${toggleMenu ? 'dark:bg-primary-bg-dark bg-primary-bg-light' : 'backdrop-blur-md' } fixed top-0 w-full py-4 md:px-10 px-5 flex justify-between items-center font-${originalSelectedValue === "ar" ? "tajawal" : "poppins"} text-primary-light dark:text-primary-dark`}
+            className={`z-10 ${toggleMenu || dropped ? 'dark:bg-primary-bg-dark bg-primary-bg-light' : 'backdrop-blur-md'} fixed md:top-0 md:w-full w-10/12 md:left-0 left-[8.33333%] top-5 md:border-none border border-e-red-50 md:rounded-none rounded-lg py-4 md:px-10 px-5 flex justify-between items-center font-${originalSelectedValue === "ar" ? "tajawal" : "poppins"} text-primary-light dark:text-primary-dark`}
         >
             {/* Logo */}
             <motion.h1
@@ -126,12 +134,14 @@ const Header = () => {
                     </Link>
 
                     {/* Language dropdown */}
-                    <Dropdown
-                        title={selectedValue || t("languages")}
-                        options={langs}
-                        onChange={handleDropdownChange}
-                        className="w-24 text-[.6em] rounded-md transition hover:bg-accent-light hover:text-primary-bg-light py-[6px]"
-                    />
+                    <DropdownCTX.Provider value={{ dropped, setDropped }}>
+                        <Dropdown
+                            title={selectedValue || t("languages")}
+                            options={langs}
+                            onChange={handleDropdownChange}
+                            className="w-24 text-[.6em] rounded-md transition hover:bg-accent-light hover:text-primary-bg-light py-[6px]"
+                        />
+                    </DropdownCTX.Provider>
                 </div>
             </motion.nav>
 
@@ -142,9 +152,9 @@ const Header = () => {
 
             {/* Mobile navigation */}
             <motion.nav
-                initial={{ x: "100%" }}
-                animate={{ x: toggleMenu ? 0 : "100%" }}
-                className="z-10 backdrop-blur-md fixed top-[72px] w-full right-0 flex md:hidden flex-col p-4">
+                initial={{ x: "150%" }}
+                animate={{ x: toggleMenu ? 0 : "150%" }}
+                className={`z-10 ${dropped ? 'dark:bg-primary-bg-dark bg-primary-bg-light' : 'backdrop-blur-md'} fixed top-[95px] border rounded-lg w-10/12 left-[8.3333%] flex md:hidden flex-col p-4`}>
                 <ul>
                     {translatedNavItems.map((item, index) => (
                         <li key={index}>
@@ -172,12 +182,14 @@ const Header = () => {
                     </Link>
 
                     {/* Language dropdown */}
-                    <Dropdown
-                        title={selectedValue || t("languages")}
-                        options={langs}
-                        onChange={handleDropdownChange}
-                        className="w-24 text-[.6em] rounded-md transition hover:bg-accent-light hover:text-primary-bg-light py-[6px]"
-                    />
+                    <DropdownCTX.Provider value={{ dropped, setDropped }}>
+                        <Dropdown
+                            title={selectedValue || t("languages")}
+                            options={langs}
+                            onChange={handleDropdownChange}
+                            className="w-24 text-[.6em] rounded-md transition hover:bg-accent-light hover:text-primary-bg-light py-[6px]"
+                        />
+                    </DropdownCTX.Provider>
                 </div>
             </motion.nav>
         </header>
